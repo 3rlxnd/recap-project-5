@@ -3,6 +3,7 @@ import Piece from '../../components/Piece/Piece'
 import { useRouter } from "next/router";
 import useSWR from 'swr';
 import Footer from '@/components/Footer/Footer';
+import PieceDetail from '@/components/PieceDetail/PieceDetail';
 
 const URL = 'https://example-apis.vercel.app/api/art'
 
@@ -14,7 +15,7 @@ export default function Preview() {
     const piece = data.find(piece => piece.slug === slug)
     return (
       <>
-        <Piece piece={piece} />
+        <PieceDetail piece={piece} />
         <Footer/>
       </>
     )
