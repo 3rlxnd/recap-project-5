@@ -1,13 +1,9 @@
-import Piece from "@/components/Piece/Piece";
-import Link from "next/link";
-import useSWR from "swr";
+import SpotlightPiece from "@/components/SpotlightPiece/SpotlightPiece";
+import Footer from "@/components/Footer/Footer";
 
 export default function HomePage() {
-  const URL = 'https://example-apis.vercel.app/api/art'
-  const { data, error, isLoading, isValidating } = useSWR(URL);
-  console.log(data);
-  
   return <>
-  <Link href={'/art-pieces'}>Art Pieces</Link>
+    <SpotlightPiece/>
+    <Footer/>
   </>
 }
