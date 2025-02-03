@@ -7,7 +7,7 @@ export default function Footer() {
             <nav>
                 <Link href={'/'}>Spotlight</Link>
                 <Link href={'/art-pieces'}>Gallery</Link>
-                <Link href={'/favourites'}>Favourites</Link>
+                <Link href={'/favorites'}>Favourites</Link>
             </nav>
         </footer>
     )

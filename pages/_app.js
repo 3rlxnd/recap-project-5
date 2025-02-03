@@ -1,3 +1,4 @@
+import { useState } from "react";
 import GlobalStyle from "../styles";
 import { SWRConfig } from "swr";
 
@@ -7,14 +8,23 @@ async function fetcher(url) {
 }
 
 export default function App({ Component, pageProps }) {
+  const [ likes, setLikes ] = useState([])
+  
+  function handleToggle(slug) {
+    setLikes((prevLikes) =>
+      prevLikes.includes(slug)
+        ? prevLikes.filter((item) => item !== slug)
+        : [...prevLikes, slug]
+    );
+  }
+
   return (
     <>
     <SWRConfig value={{
-        fetcher,
-        refreshInterval: 1000,
+        fetcher
       }}>
       <GlobalStyle />
-      <Component {...pageProps} />
+      <Component liked={likes} onToggle={handleToggle} {...pageProps} />
 </SWRConfig>
     </>
   );

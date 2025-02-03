@@ -14,12 +14,13 @@ export default createGlobalStyle`
   }
 
   footer {
-  position: fixed;
-bottom: 0;
-  width: 100%;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     display: flex;
     justify-content: center;
     padding: 20px;
+    background-color: white;
   }
 
   nav {
