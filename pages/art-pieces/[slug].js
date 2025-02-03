@@ -2,6 +2,7 @@ import React from 'react'
 import Piece from '../../components/Piece/Piece'
 import { useRouter } from "next/router";
 import useSWR from 'swr';
+import Footer from '@/components/Footer/Footer';
 
 const URL = 'https://example-apis.vercel.app/api/art'
 
@@ -12,9 +13,11 @@ export default function Preview() {
   if (data) {
     const piece = data.find(piece => piece.slug === slug)
     return (
-      <div>
+      <>
         <Piece piece={piece} />
-      </div>
+        <Footer/>
+      </>
     )
   }
+
 }

@@ -13,7 +13,7 @@ export default function SpotlightPiece({ piece }) {
 
         return (
             <div>
-                <img src={piece.imageSource} alt={piece.name} width={'100%'} />
+                <img src={piece.imageSource} alt={piece.name} width={'30%'} />
                 <p><b>{piece.name}</b></p>
             </div>
         )

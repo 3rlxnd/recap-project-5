@@ -1,6 +1,7 @@
 import Piece from "@/components/Piece/Piece";
 import useSWR from "swr";
 import Link from "next/link";
+import Footer from "@/components/Footer/Footer";
 
 export default function Overview() {
     const URL = 'https://example-apis.vercel.app/api/art'
@@ -13,5 +14,6 @@ export default function Overview() {
       {data.map(piece => (<li key={piece.slug}><Link href={`art-pieces/${piece.slug}`}><Piece piece={piece}/></Link></li>))}
     </ul>
     }
+    <Footer/>
     </>
   }
