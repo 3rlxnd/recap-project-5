@@ -5,13 +5,15 @@ import LikeButton from '../LikeButton/LikeButton'
 
 export default function Piece({ liked, piece, onToggle }) {
   return (
-    <div>
+    <div className='piece'>
       <LikeButton liked={liked} slug={piece.slug} onToggle={onToggle}/>
       <Link href={`art-pieces/${piece.slug}`}>
-      <img src={piece.imageSource} alt={piece.name} width={'30%'}/>
+      <img src={piece.imageSource} alt={piece.name} width={'100%'}/>
       </Link>
-      <p><b>{piece.name}</b></p>
+      <div style={{padding: '20px'}}>
+      <h3>{piece.name}</h3>
       <p>{piece.artist}</p>
+      </div>
     </div>
   )
 }

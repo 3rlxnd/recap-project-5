@@ -8,11 +8,13 @@ export default function Overview({ onToggle, liked }) {
     const { data, error, isLoading, isValidating } = useSWR(URL);
     
     return <>
+    <main>
     <h1>Art Gallery</h1>
-    {data && <ul style={{listStyle: 'none', margin: 0, padding: 0}}>
+    {data && <ul className="piece-wrapper">
       {data.map(piece => (<li key={piece.slug}><Piece liked={liked} piece={piece} onToggle={onToggle} /></li>))}
     </ul>
     }
+    </main>
     <Footer/>
     </>
   }
