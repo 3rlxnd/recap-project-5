@@ -1,14 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import GlobalStyle from "../styles";
 import { SWRConfig } from "swr";
+
+
+// localStorage.clear()
 
 async function fetcher(url) {
   const response = await fetch(url);
   return await response.json();
 }
 
+const STORAGE_KEY = "piecesInfo";
+
+const getInitialPiecesInfo = () => {
+  if (typeof window !== "undefined") {
+    const storedData = localStorage.getItem(STORAGE_KEY);
+    return storedData ? JSON.parse(storedData) : [];
+  }
+  return [];
+};
+
 export default function App({ Component, pageProps }) {
-  const [piecesInfo, setPiecesInfo] = useState([])
+  const [piecesInfo, setPiecesInfo] = useState(getInitialPiecesInfo)
+  
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(piecesInfo));
+  }, [piecesInfo]);
+
 
     function handleToggle(slug) {
       setPiecesInfo((prevPieces) =>
@@ -25,7 +43,6 @@ export default function App({ Component, pageProps }) {
           ? prevPieces.map((item) => item.slug === slug ? { ...item, comments: item.comments ? [...item.comments, {message: comment, date: date.toLocaleString()}] : [{message: comment, date: comment.date}] } : item)
           : [...prevPieces, { slug: slug, comments: [{message: comment, date: date.toLocaleString()}] }]
       );
-      console.log(piecesInfo);
     }
   
     return (
