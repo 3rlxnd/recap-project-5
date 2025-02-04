@@ -52,7 +52,7 @@ export default createGlobalStyle`
   background-color: white;
   }
 
-  img {
+  .cover-img {
   height: 400px;
   object-fit: cover;
   }
@@ -70,4 +70,5 @@ export default createGlobalStyle`
   font-size: 20px;
   }
 `;
+
 
