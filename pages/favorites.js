@@ -12,7 +12,7 @@ export default function Overview({ onToggle, liked }) {
     <h1>Art Gallery</h1>
     {data && <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
       {data.map(piece => {
-        if (liked.includes(piece.slug)) {
+        if (liked.some(item => item.slug === piece.slug && item.isLiked)) {
           return (<li key={piece.slug}><Piece liked={liked} piece={piece} onToggle={onToggle} /></li>)
         }
       })}

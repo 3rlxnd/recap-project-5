@@ -6,7 +6,7 @@ import PieceDetail from '@/components/PieceDetail/PieceDetail';
 
 const URL = 'https://example-apis.vercel.app/api/art'
 
-export default function Preview({ onToggle, liked }) {
+export default function Preview({ onComment, onToggle, liked }) {
   const router = useRouter();
   const { slug } = router.query;
   const { data, error, isLoading } = useSWR(URL)
@@ -14,7 +14,7 @@ export default function Preview({ onToggle, liked }) {
     const piece = data.find(piece => piece.slug === slug)
     return (
       <>
-        <PieceDetail onToggle={onToggle} liked={liked} piece={piece} />
+        <PieceDetail onComment={onComment} onToggle={onToggle} liked={liked} piece={piece} />
         <Footer/>
       </>
     )
