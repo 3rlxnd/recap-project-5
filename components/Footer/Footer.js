@@ -5,9 +5,9 @@ export default function Footer() {
     return (
         <footer>
             <nav>
-                <Link href={'/'}>Spotlight</Link>
-                <Link href={'/art-pieces'}>Gallery</Link>
-                <Link href={'/favorites'}>Favourites</Link>
+                <Link className='link' href={'/'}>Spotlight</Link>
+                <Link className='link' href={'/art-pieces'}>Gallery</Link>
+                <Link className='link' href={'/favorites'}>Favourites</Link>
             </nav>
         </footer>
     )

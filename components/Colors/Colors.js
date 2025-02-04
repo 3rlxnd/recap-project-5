@@ -1,11 +1,10 @@
 import React from 'react'
 
 export default function Colors({ piece }) {
-    return (<>
-        <h2>Colors</h2>
-        <ul>
-            {piece.colors.map(color => <div key={color} style={{ backgroundColor: color, padding: '25px' }}></div>)}
+    return (<div>
+        <ul id='color-wrapper'>
+            {piece.colors.map(color => <div className='color' key={color} style={{ backgroundColor: color }}></div>)}
         </ul>
-    </>
+    </div>
     )
 }

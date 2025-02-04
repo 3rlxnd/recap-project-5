@@ -10,8 +10,8 @@ export default function Piece({ liked, piece, onToggle }) {
       <Link href={`art-pieces/${piece.slug}`}>
       <img src={piece.imageSource} alt={piece.name} width={'100%'} className='cover-img'/>
       </Link>
-      <div style={{padding: '20px'}}>
-      <h3>{piece.name}</h3>
+      <div className='piece-info'>
+      <h2 className='piece-title'>{piece.name}</h2>
       <p>{piece.artist}</p>
       </div>
     </div>

@@ -22,44 +22,45 @@ const getInitialPiecesInfo = () => {
 
 export default function App({ Component, pageProps }) {
   const [piecesInfo, setPiecesInfo] = useState(getInitialPiecesInfo)
-  
+
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(piecesInfo));
   }, [piecesInfo]);
 
 
-    function handleToggle(slug) {
-      setPiecesInfo((prevPieces) =>
-        prevPieces.some(piece => piece.slug === slug)
-          ? prevPieces.map((item) => item.slug === slug ? { ...item, isLiked: !item.isLiked } : item)
-          : [...prevPieces, { slug: slug, isLiked: true }]
-      );
-    }
-    
-    function handleComment(slug, comment) {
-      const date = new Date()
-      setPiecesInfo((prevPieces) =>
-        prevPieces.some(piece => piece.slug === slug)
-          ? prevPieces.map((item) => item.slug === slug ? { ...item, comments: item.comments ? [...item.comments, {message: comment, date: date.toLocaleString()}] : [{message: comment, date: comment.date}] } : item)
-          : [...prevPieces, { slug: slug, comments: [{message: comment, date: date.toLocaleString()}] }]
-      );
-    }
-  
-    return (
-      <>
-        <SWRConfig value={{
-          fetcher
-        }}>
-          <GlobalStyle />
-          <Component liked={piecesInfo} onComment={handleComment} onToggle={handleToggle} {...pageProps} />
-        </SWRConfig>
-      </>
+  function handleToggle(slug) {
+    setPiecesInfo((prevPieces) =>
+      prevPieces.some(piece => piece.slug === slug)
+        ? prevPieces.map((item) => item.slug === slug ? { ...item, isLiked: !item.isLiked } : item)
+        : [...prevPieces, { slug: slug, isLiked: true }]
     );
-  
-    { isLoading && <p>Loading</p>}
-  } 
-  
+  }
 
-  // const isLiked = piecesInfo.some(piece => piece.slug === slug && piece.isLiked);
+  function handleComment(slug, comment) {
+    const date = new Date().toISOString();
+    setPiecesInfo((prevPieces) =>
+      prevPieces.some(piece => piece.slug === slug)
+        ? prevPieces.map((item) => item.slug === slug ? { ...item, comments: item.comments ? [...item.comments, { message: comment, date: date }] : [{ message: comment, date: date.toLocaleString() }] } : item)
+        : [...prevPieces, { slug: slug, comments: [{ message: comment, date: date }] }]
+    );
+  }
+
+  return (
+    <>
+      <SWRConfig value={{
+        fetcher
+      }}>
+
+        <GlobalStyle />
+        <Component liked={piecesInfo} onComment={handleComment} onToggle={handleToggle} {...pageProps} />
+      </SWRConfig>
+    </>
+  );
+
+  { isLoading && <p>Loading</p> }
+}
+
+
+// const isLiked = piecesInfo.some(piece => piece.slug === slug && piece.isLiked);
 
 
