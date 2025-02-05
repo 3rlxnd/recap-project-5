@@ -52,37 +52,41 @@ margin: 0;
 margin-bottom: 20px;
 font-size: 1.75rem;
 
-  height: 50px
+  // height: 50px
 }
 
 .sub-title {
 font-size: 1.5rem;
 margin: 0;
+margin-bottom: 40px
 }
 
   nav {
   display: flex;
-  gap: 10px
+  gap: 20px
   }
 
   .link {
-  padding: 5px 10px;
+  padding: 10px;
   border-radius: 20px;
   text-decoration: none;
-  color: black;
+  color: gray;
   font-weight: 500;
+  display: flex;
+  gap: 10px
   }
 
   .active {
-  background-color: black;
-  color: white;
+  color: black;
+  // font-weight: 700
   }
 
   #collection-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px
+  margin-bottom: 20px;
+  overflow: hidden;
   // flex-wrap: wrap;
 
   }
@@ -233,6 +237,11 @@ margin: 0;
   font-size: 20px;
   transition: all 0.3s;
   }
+  
+  .icon-nav {
+    font-size: 20px;
+  display: flex;
+  }
 
   // Comment
 
@@ -306,7 +315,6 @@ line-height: 2rem;
   display: flex;
   align-items: center;
   gap: 10px;
-  height: 50px
   }
 
   #search-button {
@@ -317,14 +325,15 @@ line-height: 2rem;
   }
 
   #search-input {
-  position: ablsolute;
-  top: 0;
-  // border: none;
-  // border-radius: 0;
-  // padding: 5px 10px;
-  // border-bottom: 1px solid lightgrey
-  
+  display: flex;
   }
+
+@media only screen and (max-width: 600px) {
+  .link > p {
+  display: none
+}
+}
+
 `;
 
 

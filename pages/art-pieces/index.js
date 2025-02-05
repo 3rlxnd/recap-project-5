@@ -8,7 +8,7 @@ import { useState } from "react";
 
 export default function Overview({ onToggle, liked }) {
     const URL = 'https://example-apis.vercel.app/api/art'
-    const { data, error, isLoading, isValidating } = useSWR(URL);
+    const { data, error, isLoading } = useSWR(URL);
     const [ searchString, setSearchString ] = useState('')
 
     function handleSearch(event) {

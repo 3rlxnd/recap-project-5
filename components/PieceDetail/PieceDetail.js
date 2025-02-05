@@ -14,7 +14,7 @@ export default function PieceDetail({ liked, piece, onToggle, onComment }) {
         <div id='piece-details'>
           <div id='piece-details-header'>
             {/* <ShareButton /> */}
-            <h1 style={{maxWidth: '350px'}} className='title'>{piece.name}</h1>
+            <h1 style={{maxWidth: '350px', marginBottom: 0}} className='title'>{piece.name}</h1>
           </div>
           {/* <h2 className='sub-title'>{piece.artist}</h2> */}
           <p className='sub-title'>{`${piece.artist}`}</p>

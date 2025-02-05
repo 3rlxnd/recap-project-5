@@ -23,6 +23,8 @@ const getInitialPiecesInfo = () => {
 export default function App({ Component, pageProps }) {
   const [piecesInfo, setPiecesInfo] = useState(getInitialPiecesInfo)
 
+  
+
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(piecesInfo));
   }, [piecesInfo]);

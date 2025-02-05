@@ -1,6 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBinoculars, faHeart, faLayerGroup } from '@fortawesome/free-solid-svg-icons';
 
 export default function Footer() {
     const router = useRouter();
@@ -11,19 +13,24 @@ export default function Footer() {
                     className={`link ${router.pathname === '/' ? 'active' : ''}`} 
                     href="/"
                 >
-                    Discover
+                    <FontAwesomeIcon icon={faBinoculars} className='icon-nav'/>
+                    <p>Discover</p>
                 </Link>
                 <Link 
                     className={`link ${router.pathname === '/art-pieces' ? 'active' : ''}`} 
                     href="/art-pieces"
-                >
-                    Collection
+                    >
+                    <FontAwesomeIcon icon={faLayerGroup} className='icon-nav'/>
+                    <p>Collection</p>
+                    
                 </Link>
                 <Link 
                     className={`link ${router.pathname === '/favorites' ? 'active' : ''}`} 
                     href="/favorites"
-                >
-                    Favourites
+                    >
+                    <FontAwesomeIcon icon={faHeart} className='icon-nav'/>
+                    <p>Favourites</p>
+                    
                 </Link>
             </nav>
         </footer>
