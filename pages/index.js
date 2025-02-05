@@ -25,6 +25,8 @@ export default function Overview({ onToggle, liked }) {
     <Header />
     <main>
       <h1 className="title">Discover</h1>
+      {error && 'Error loading Data'}
+      {isLoading && 'Loading...'}
       {data && <SpotlightPiece liked={liked} piece={data[random]} onToggle={onToggle} />
       }
     </main>

@@ -15,15 +15,46 @@ export default function Preview({ onComment, onToggle, liked }) {
   const router = useRouter();
   const { slug } = router.query;
   const { data, error, isLoading } = useSWR(URL)
+
   if (data) {
     const piece = data.find(piece => piece.slug === slug)
     return (
       <>
+        {/* <Header /> */}
         <main>
+          <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+            <BackButton />
+            <ShareButton />
+          </div>
+          <PieceDetail onComment={onComment} onToggle={onToggle} liked={liked} piece={piece} />
+        </main>
+        <Footer />
+      </>
+    )
+  }
+
+  if (isLoading) {
+    return (
+      <>
+        <main>
+
           <BackButton />
           <ShareButton />
-          {/* <LikeButton slug={piece.slug} liked={liked} onToggle={onToggle} /> */}
-          <PieceDetail onComment={onComment} onToggle={onToggle} liked={liked} piece={piece} />
+          <p>Loading...</p>
+        </main>
+        <Footer />
+      </>
+    )
+  }
+
+  if (error) {
+    return (
+      <>
+        <main>
+
+          <BackButton />
+          <ShareButton />
+          <p>Error loading Data</p>
         </main>
         <Footer />
       </>
