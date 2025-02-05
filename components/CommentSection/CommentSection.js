@@ -8,6 +8,7 @@ export default function CommentSection({ pieceInfo, slug, onComment }) {
         const formdata = new FormData(event.target)
         const data = Object.fromEntries(formdata)
         onComment(slug, data.comment)
+        event.target.reset()
     }
 
     const piece = pieceInfo.find(piece => piece.slug === slug)
@@ -54,7 +55,7 @@ export default function CommentSection({ pieceInfo, slug, onComment }) {
             <form id='input-wrapper' onSubmit={handleForm}>
                 <input type='text' name='comment' placeholder='Start a conversation' required />
                 <button id='comment-button'>
-                    <FontAwesomeIcon icon={faPaperPlane} />
+                    <FontAwesomeIcon icon={faPaperPlane} className='icon' style={{color: 'gray'}}/>
                 </button>
             </form>
         </div>

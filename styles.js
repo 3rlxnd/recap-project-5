@@ -31,9 +31,9 @@ export default createGlobalStyle`
     justify-content: center;
     padding: 20px;
     background-color: white;
-    border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
-    box-shadow: 0 0 8px grey;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+    box-shadow: 0 0 30px lightgrey;
     z-index: 1;
   }
 
@@ -51,6 +51,8 @@ width: 40px;
 margin: 0;
 margin-bottom: 20px;
 font-size: 1.75rem;
+
+  height: 50px
 }
 
 .sub-title {
@@ -64,15 +66,39 @@ margin: 0;
   }
 
   .link {
-  padding: 5px 20px;
+  padding: 5px 10px;
   border-radius: 20px;
   text-decoration: none;
   color: black;
+  font-weight: 500;
+  }
+
+  .active {
+  background-color: black;
+  color: white;
+  }
+
+  #collection-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px
+  // flex-wrap: wrap;
+
   }
 
   .piece {
   position: relative;
   width: 350px;
+  display: flex;
+  gap: 10px;
+  text-decoration: none;
+  flex-direction: column;
+  }
+
+  .spotlight-piece {
+  position: relative;
+  width: 100%;
   display: flex;
   gap: 10px;
   text-decoration: none;
@@ -100,7 +126,8 @@ margin: 0;
   // gap: 20px;
   flex-direction: column;
   margin-top: 20px;
-  max-width: 300px;
+  width: 100%;
+  max-width: 400px;
   }
 
 #image-wrapper {
@@ -147,6 +174,8 @@ margin: 0;
   
   .share-button {
   position: absolute;
+  // top: 0px;
+  // right: 0px;
   top: 20px;
   right: 20px;
   margin: 0;
@@ -175,6 +204,14 @@ margin: 0;
   height: 400px;
   object-fit: cover;
   border-radius: 2rem;
+  transition: 0.2s;
+  }
+
+  .spotlight-img {
+  height: 480px;
+  object-fit: cover;
+  border-radius: 2rem;
+  transition: 0.2s;
   }
 
   .piece-wrapper {
@@ -184,6 +221,12 @@ margin: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  }
+
+  #piece-details-header {
+  position: relative;
+  display: flex;
+  width: 100%
   }
 
   .icon {
@@ -223,6 +266,7 @@ line-height: 2rem;
   input {
     width: 100%;
     font-family: system-ui;
+    font-size: 1rem;
     border-radius: 50px;
     border: 1px solid lightgrey;
     // height: 20px;
@@ -247,11 +291,39 @@ line-height: 2rem;
   gap: 10px;
   margin: 0;
   padding: 0;
+  margin: 20px 0px
   }
 
   .color {
   height: 30px;
   width: 30px;
+  }
+
+// Searchbar
+
+  #searchBar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 50px
+  }
+
+  #search-button {
+  position: ablsolute;
+  top: 0;
+  right: 50px;
+  
+  }
+
+  #search-input {
+  position: ablsolute;
+  top: 0;
+  // border: none;
+  // border-radius: 0;
+  // padding: 5px 10px;
+  // border-bottom: 1px solid lightgrey
+  
   }
 `;
 

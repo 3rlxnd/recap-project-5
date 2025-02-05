@@ -1,13 +1,30 @@
 import React from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 export default function Footer() {
+    const router = useRouter();
     return (
         <footer>
             <nav>
-                <Link className='link' href={'/'}>Spotlight</Link>
-                <Link className='link' href={'/art-pieces'}>Gallery</Link>
-                <Link className='link' href={'/favorites'}>Favourites</Link>
+                <Link 
+                    className={`link ${router.pathname === '/' ? 'active' : ''}`} 
+                    href="/"
+                >
+                    Discover
+                </Link>
+                <Link 
+                    className={`link ${router.pathname === '/art-pieces' ? 'active' : ''}`} 
+                    href="/art-pieces"
+                >
+                    Collection
+                </Link>
+                <Link 
+                    className={`link ${router.pathname === '/favorites' ? 'active' : ''}`} 
+                    href="/favorites"
+                >
+                    Favourites
+                </Link>
             </nav>
         </footer>
     )

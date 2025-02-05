@@ -11,18 +11,21 @@ export default function PieceDetail({ liked, piece, onToggle, onComment }) {
   return (
     <div >
       <div id='piece-details-wrapper'>
-        {/* <ShareButton /> */}
         <div id='piece-details'>
-          <h1 className='title'>{piece.name}</h1>
+          <div id='piece-details-header'>
+            {/* <ShareButton /> */}
+            <h1 style={{maxWidth: '350px'}} className='title'>{piece.name}</h1>
+          </div>
           {/* <h2 className='sub-title'>{piece.artist}</h2> */}
-          <p>{piece.artist + ' • ' + piece.year}</p>
-          <p>{piece.genre}</p>
+          <p className='sub-title'>{`${piece.artist}`}</p>
+          <p>{piece.year !== 'unknown' ? `from ${piece.year}` : ''}</p>
+          {/* <p>{piece.genre}</p> */}
           <Colors piece={piece} />
         </div>
         <div id='image-wrapper'>
 
-        <img src={piece.imageSource} alt={piece.name} id='detail-image' />
-        <LikeButton slug={piece.slug} liked={liked} onToggle={onToggle} />
+          <img src={piece.imageSource} alt={piece.name} id='detail-image' />
+          <LikeButton slug={piece.slug} liked={liked} onToggle={onToggle} />
         </div>
       </div>
       <CommentSection slug={piece.slug} pieceInfo={liked} onComment={onComment} />

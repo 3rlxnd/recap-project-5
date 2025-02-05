@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUpFromBracket, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 
 export default function ShareButton({}) {
@@ -22,7 +22,7 @@ export default function ShareButton({}) {
   
   return (
     <a onClick={handleShare} className='share-button'>
-      <FontAwesomeIcon style={{ color: 'grey' }} icon={faPaperPlane} className="icon" />
+      <FontAwesomeIcon style={{ color: 'grey' }} icon={faArrowUpFromBracket} className="icon" />
     </a>
   )
 }
